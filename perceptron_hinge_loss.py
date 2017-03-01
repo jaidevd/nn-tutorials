@@ -2,6 +2,7 @@
 from theano import shared, function
 import theano.tensor as T
 import numpy as np
+from utils import make_classification
 
 rng = np.random.RandomState(12345)
 x = T.dmatrix('x')
@@ -15,11 +16,7 @@ gw, gb = T.grad(pLoss, [w, b])
 train = function([x, y], [pLoss], updates=[(w, w - gw), (b, b - gb)])
 predict = function([x], [activation])
 
-xx = rng.multivariate_normal([0.5, 0.5], [[0, 0.05], [0.05, 0]], size=(100,))
-yy = rng.multivariate_normal([-0.5, -0.5], [[0, 0.05], [0.05, 0]], size=(100,))
-X = np.r_[xx, yy]
-Y = np.ones((200, 1))
-Y[:100, :] = 0
+X, Y = make_classification()
 
 predict(X)
 for i in range(10):
