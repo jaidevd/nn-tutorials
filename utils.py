@@ -15,9 +15,16 @@
 """
 
 import numpy as np
-from sklearn.datasets import make_moons
+from sklearn.datasets import make_moons, make_circles
+from sklearn.preprocessing import OneHotEncoder
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
+
+
+def backprop_make_classification():
+    X, Y = make_circles(factor=0.1, noise=0.1)
+    Y = OneHotEncoder().fit_transform(Y.reshape(-1, 1)).toarray()
+    return X, Y
 
 
 def make_classification(for_perceptron=False):
@@ -39,6 +46,12 @@ def perceptron_make_moons():
     y[y == 0] = -1
     y = y.reshape(-1, 1)
     return X, y
+
+
+def backprop_make_moons():
+    X, Y = make_moons(noise=0.01)
+    Y = OneHotEncoder().fit_transform(Y.reshape(-1, 1)).toarray()
+    return X, Y
 
 
 def draw_decision_boundary(weights, X, y, show=False):
