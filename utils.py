@@ -20,13 +20,16 @@ import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 
 
-def make_classification():
+def make_classification(for_perceptron=False):
     rng = np.random.RandomState(12345)
     xx = rng.multivariate_normal([0.5, 0.5], [[0, 0.05], [0.05, 0]], size=(100,))
     yy = rng.multivariate_normal([-0.5, -0.5], [[0, 0.05], [0.05, 0]], size=(100,))
     X = np.r_[xx, yy]
     Y = np.ones((200, 1))
-    Y[:100, :] = 0
+    if for_perceptron:
+        Y[:100, :] = -1
+    else:
+        Y[:100, :] = 0
     return X, Y
 
 
