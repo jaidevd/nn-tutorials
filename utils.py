@@ -66,3 +66,7 @@ def backprop_decision_boundary(predictor, X, y, show=False):
     plt.scatter(X[:, 0], X[:, 1], c=y)
     if show:
         plt.show()
+
+
+def sigmoid(x):
+    return 1.0 / (1 + np.exp(-x))
