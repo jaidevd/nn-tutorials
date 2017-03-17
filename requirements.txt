@@ -1,0 +1,3 @@
+theano
+scikit-learn
+matplotlib
