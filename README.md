@@ -1,7 +1,7 @@
 Understanding Neural Networks with Theano
 =========================================
 
-Notebooks from my theano workshop at PyDelhi Conference 2017.
+Notebooks for the tutorial on understanding neural networks with Theano.
 
 You can interactively play with the notebooks here:
 You can interactively play with the notebooks here:
