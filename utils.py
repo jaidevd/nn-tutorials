@@ -60,19 +60,19 @@ def draw_decision_boundary(weights, X, y, show=False):
     xx = np.linspace(X[:, 0].min(), X[:, 0].max())
     yy = - (weights[0] * xx + weights[2]) / weights[1]
     plt.figure(figsize=(6, 4))
-    plt.scatter(X[:, 0], X[:, 1], c=y)
+    plt.scatter(X[:, 0], X[:, 1], c=y.ravel())
     plt.plot(xx, yy)
     if show:
         plt.show()
 
 
-def backprop_decision_boundary(predictor, X, y, show=False):
+def backprop_decision_boundary(predictor, X, y, show=False, *predictor_args, **predictor_kwargs):
     y = np.argmax(y, axis=1)
     x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
     y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
     xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.1),
                          np.arange(y_min, y_max, 0.1))
-    Z = predictor(np.c_[xx.ravel(), yy.ravel()])
+    Z = predictor(np.c_[xx.ravel(), yy.ravel()], *predictor_args, **predictor_kwargs)
     Z = Z.argmax(axis=1)
     Z = Z.reshape(xx.shape)
     plt.contourf(xx, yy, Z, alpha=0.4)
