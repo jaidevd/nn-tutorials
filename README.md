@@ -1,8 +1,7 @@
-Understanding Neural Networks with Theano
-=========================================
+Understanding Neural Networks with Tensorflow
+=============================================
 
-Notebooks for the tutorial on understanding neural networks with Theano.
+Notebooks for the tutorial on understanding neural networks with Tensorflow.
 
 You can interactively play with the notebooks here:
-You can interactively play with the notebooks here:
-[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/jaidevd/pydelhi_theano)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jaidevd/nn-tutorials/master)
